@@ -59,9 +59,9 @@ function RunLauncher() {
     <section className="glass rounded-[34px] p-7 shadow-2xl">
       <div className="flex items-center justify-between gap-4">
         <div>
-          <Badge tone="green">Agent API</Badge>
-          <h2 className="mt-3 text-3xl font-semibold tracking-[-.04em]">Start a run</h2>
-          <p className="mt-2 text-sm text-white/55">POST a target URL, profile, and optional expected text. The worker returns normalized JSON and SARIF.</p>
+          <Badge tone="green">Agent endpoint</Badge>
+          <h2 className="mt-3 text-3xl font-semibold tracking-[-.04em]">Manual test console</h2>
+          <p className="mt-2 text-sm text-white/55">This panel is only a thin console for humans. In normal use, coding agents POST a target URL, profile, and expected assertions, then consume JSON and SARIF results.</p>
         </div>
         <Bot className="h-10 w-10 text-violet-300" />
       </div>
@@ -105,9 +105,9 @@ export default function Home() {
         <div className="absolute left-1/2 top-0 h-[560px] w-[760px] -translate-x-1/2 rounded-full bg-violet/30 blur-[150px]" />
         <div className="relative mx-auto grid max-w-7xl items-start gap-10 lg:grid-cols-[1.05fr_.95fr]">
           <div>
-            <Badge tone="violet">BrowserStack + DAST scanner for agents</Badge>
-            <h1 className="mt-6 text-5xl font-semibold leading-[.92] tracking-[-.075em] md:text-7xl">Unified QA and security testing for agentic development.</h1>
-            <p className="mt-7 max-w-2xl text-lg leading-8 text-white/62">An agent-native harness that runs cross-browser QA, accessibility, performance, SAST, SCA, secrets, and DAST checks, then returns one machine-readable report the agent can fix automatically.</p>
+            <Badge tone="violet">Internal agent backend</Badge>
+            <h1 className="mt-6 text-5xl font-semibold leading-[.92] tracking-[-.075em] md:text-7xl">A QA and security service for coding agents, not an end-user app.</h1>
+            <p className="mt-7 max-w-2xl text-lg leading-8 text-white/62">Agents call this API after they build or edit software. It runs browser QA, accessibility, performance, SAST, SCA, secrets, and DAST checks, then returns machine-readable findings the agent can fix and retest.</p>
             <div className="mt-8 flex flex-wrap gap-3">
               <Badge tone="green">Phase 1 working API</Badge>
               <Badge>Async run model</Badge>
@@ -131,7 +131,7 @@ export default function Home() {
             [Lock, 'Security engine', 'SAST, SCA, secrets, DAST, and container/IaC scan adapters mapped to OWASP Top 10 and SARIF.'],
             [Database, 'Result normalizer', 'Every tool becomes the same schema: stable finding IDs, severity, location, evidence, reproduction, remediation, and verdict.'],
             [Gauge, 'Gating policy', 'High or critical security findings, secrets, smoke failures, and Tier 1 functional failures block. Low findings warn.'],
-            [Code2, 'Agent feedback loop', 'Agents call start, poll status, fetch JSON/SARIF, fix code, and use retest for specific finding IDs.'],
+            [Code2, 'Agent feedback loop', 'Agents call the API, poll status, fetch JSON/SARIF, patch code, and retest specific finding IDs. The human UI is optional.'],
             [ShieldCheck, 'Platform hardening', 'Sandboxing, tenant isolation, secrets management, audit logging, least privilege, outbound controls, and resource limits.'],
           ].map(([Icon, title, body]) => {
             const Cmp = Icon as React.ComponentType<{ className?: string }>;
